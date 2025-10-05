@@ -1,31 +1,25 @@
-/* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-/* Body Styling */
 body {
     font-family: 'Raleway', sans-serif;
-    margin:0;
-    padding: 0;
-    background: radial-gradient(circle, #1ABC9C, #2C3E50, #FDFEFE);
-    color: #4D4D4D;
-    
-}
-
-/* Global Reset */
-* {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
+    background: linear-gradient(to right, #6b6e6d, #ffffff);
+    color: #333;
 }
-.background{
-    background: url(../Images/backgroun3.jpg) no-repeat;
-    background-position: center;
-    background-size:cover ;
-    height: 100vh;
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    filter: blur(10px);
+    height: 100%;
+    background: url('../Images/backgroun3.jpg') no-repeat center center/cover;
+    filter: blur(8px) brightness(0.6);
+    z-index: -1;
 }
+
 /* Navbar Base Styles */
 header {
     position:relative;
@@ -50,10 +44,11 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #FFFFFF;
+    color: #031a5f;
     font-size: 15px;
     font-weight: 600;
     margin: 0 10px;
+    font-weight: bolder;
     transition: color 0.3s ease;
 }
 
@@ -86,43 +81,128 @@ nav a:hover {
 }
 
 /* Dropdown Menu */
+/* ===================================
+   ULTRA-SMOOTH PREMIUM DROPDOWN MENU
+=================================== */
 .nav-item {
     position: relative;
 }
 
+/* Dropdown Base */
 .nav-item .dropdown {
-    display: none;
+    display: flex;
+    flex-direction: column; /* Ensures single-row stacked layout */
     position: absolute;
-    top: 100%; /* Positioned below the parent link */
+    top: 120%;
     left: 0;
-    background: #2C3E50;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    min-width: 220px;
+    background: rgba(28, 37, 51, 0.96); /* Deep navy tone */
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(15px) scale(0.97);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 999;
 }
 
+/* Dropdown Items */
 .nav-item .dropdown a {
     display: block;
-    padding: 10px 20px;
-    color: #ffffff;
-    font-size: 14px;
-    white-space: nowrap;
-    transition: background-color 0.3s ease;
+    width: 100%;
+    padding: 12px 22px;
+    color: #f8f8f8;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.35s ease;
+    position: relative;
+    box-sizing: border-box;
+    letter-spacing: 0.4px;
 }
 
+/* Hover Effect — Subtle Slide + Glow */
 .nav-item .dropdown a:hover {
-    background-color: #1ABC9C;
+    background: linear-gradient(to right, rgba(255, 126, 95, 0.25), rgba(255, 213, 102, 0.22));
+    color: #FFD166;
+    padding-left: 28px;
+    text-shadow: 0 0 8px rgba(255, 209, 102, 0.7);
 }
 
-.nav-item:hover .dropdown {
-    display: block; /* Show dropdown on hover */
+/* Optional arrow animation */
+.nav-item .dropdown a::after {
+    content: '›';
+    position: absolute;
+    right: 20px;
+    font-size: 14px;
+    color: #FFD166;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
 }
+
+.nav-item .dropdown a:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Remove border for last item */
+.nav-item .dropdown a:last-child {
+    border-bottom: none;
+}
+
+/* Smooth Dropdown Animation */
+.nav-item:hover .dropdown {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Floating arrow under parent item */
+.nav-item:hover::after {
+    content: '';
+    position: absolute;
+    top: 96%;
+    left: 25px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: rgba(28, 37, 51, 0.96) transparent transparent transparent;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+}
+
+/* Optional entry animation for each item */
+.nav-item:hover .dropdown a {
+    animation: dropdownFade 0.4s ease forwards;
+    opacity: 0;
+}
+
+.nav-item:hover .dropdown a:nth-child(1) { animation-delay: 0.05s; }
+.nav-item:hover .dropdown a:nth-child(2) { animation-delay: 0.1s; }
+.nav-item:hover .dropdown a:nth-child(3) { animation-delay: 0.15s; }
+.nav-item:hover .dropdown a:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes dropdownFade {
+    from {
+        transform: translateY(-8px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
 
 /* Login Icon */
 nav a.login-icon {
     display: flex;
     align-items: center;
-    color: #FFFFFF;
+    color: #031a5f;
+    font-weight: bolder;
     font-size: 15px;
     font-weight: bold;
 }
@@ -192,189 +272,146 @@ nav a.login-icon i {
 }
 
 
-.container{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 75%;
-    height: 550px;
-    margin-top: 20px;
-    background: url(../Images/backgroun3.jpg) no-repeat;
-    background-position: center;
-    background-size:cover ;
-    border-radius: 20px;
+
+
+
+.container {
+    position: relative;
+    max-width: 900px;
+    margin: 100px auto;
+    display: flex;
+    border-radius: 15px;
     overflow: hidden;
-    
-    
-}
-.item{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 58%;
-    height: 100%;
-    color: #fff;
-    background: transparent;
-    padding: 80px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    
-
-
-}
-.item .logo{
-    color: #fff;
-    font-size: 30px;
-
-}
-.text-item h2{
-    font-size: 40px;
-    line-height: 1;
-}
-.text-item p{
-    font-size: 16px;
-    margin: 20px 0;
-}
-.social-icon a i{
-    color: #fff;
-    font-size: 24px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: .5s ease;
-}
-.social-icon a:hover i{
-    transform: scale(1.2);
-}
-.container .login-section{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: calc(100% - 58%);
-    height: 100%;
-    color: #fff;
+    background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
 
-.login-section .form-box{
-    position: absolute;
+.info-panel {
+    flex: 1;
+    padding: 40px;
+    color: #fff;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    
+    background: rgba(0,0,0,0.3);
 }
-.login-section .form-box.register{
-    transform: translateX(430px);
-    transition: transform .6s ease;
-    transition-delay: 0s;
+.info-panel h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
 }
-.login-section.active .form-box.register{
-    transform: translateX(0px);
-    transition-delay: .7s;
+.info-panel h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
 }
-
-.login-section .form-box.login{
-    transform: translateX(0px);
-    transition: transform .6s ease;
-    transition-delay: 0.7s;
+.info-panel p {
+    font-size: 16px;
+    line-height: 1.5;
 }
-.login-section.active .form-box.login{
-    transform: translateX(430px);
-    transition-delay: 0s;
+.social-icons a {
+    margin-right: 10px;
+    color: #fff;
+    font-size: 20px;
+}
+.social-icons a:hover {
+    color: #ffd700;
 }
 
-
-
-.login-section .form-box h2{
-    text-align: center;
-    font-size: 25px;
-}
-
-.form-box .input-box{
-    width: 340px;
-    height: 50px;
-    border-bottom: 2px solid#fff;
-    margin: 30px 0;
+.login-section {
+    flex: 1;
     position: relative;
 }
-.input-box input{
-    width: 100%;
+
+.form-box {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    padding-right: 28px;
-
-
+    transition: all 0.6s ease;
 }
-.input-box label{
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+.input-box input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+.input-box label {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 35px;
     transform: translateY(-50%);
-    font-size: 16px;
-    font-weight: 600px;
     pointer-events: none;
-    transition: .5s ease;
-
+    color: #fff;
+    transition: 0.3s;
 }
-.input-box .icon{
+.input-box input:focus + label,
+.input-box input:valid + label {
+    top: -8px;
+    font-size: 12px;
+    color: #ffd700;
+}
+.input-box .icon {
     position: absolute;
-    top: 13px;
-    right: 0;
-    font-size: 19px;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #fff;
 }
-.input-box input:focus~ label,
-.input-box input:valid~ label{
-    top: -5px;
-}
-.remember-password{
-    font-size: 14px;
-    font-weight: 500;
-    margin: -15px 0 15px ;
+
+.options {
     display: flex;
     justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 15px;
 }
-.remember-password label input{
-    accent-color: #fff;
-    margin-right: 3px;
+.options label input {
+    accent-color: #ffd700;
+    margin-right: 5px;
+}
 
-}
-.remember-password a{
-    color: #fff;
-    text-decoration: none;
-}
-.remember-password a:hover{
-    text-decoration: underline;
-}
-.btn{
-    background: #fff;
-    width: 100%;
-    height: 45px;
-    outline: none;
+.btn {
+    background: linear-gradient(45deg, #f72d7a, #ff6f61);
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background: #f72d7a;
+    padding: 12px;
+    border-radius: 25px;
+    color: #fff;
     font-size: 16px;
-    color: #fff;
-    box-shadow: rgba(0,0,0,0.4);
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
 
-}
-.create-account{
-    font-size: 14.5px;
+.toggle-form {
     text-align: center;
-    margin: 25px;
+    margin-top: 15px;
 }
-.create-account p a{
-    color: #fff;
-    font-weight: 600px;
+.toggle-form a {
+    color: #ffd700;
     text-decoration: none;
 }
-.create-account p a:hover{
+.toggle-form a:hover {
     text-decoration: underline;
+}
+
+/* Responsive */
+@media(max-width: 900px){
+    .container {
+        flex-direction: column;
+        margin: 50px 20px;
+    }
+    .info-panel {
+        display: none;
+    }
 }
