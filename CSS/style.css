@@ -324,7 +324,6 @@ nav.active .hamburger div:nth-child(3) {
 
 
 
-
 /* carousel */
 .carousel{
     height: 100vh;
@@ -338,7 +337,10 @@ nav.active .hamburger div:nth-child(3) {
     height: 100%;
     position: absolute;
     inset: 0 0 0 0; 
-   background: radial-gradient(circle, #ffffff, #e8e8e8, #cad3f3);
+   background: radial-gradient(circle, #ffffff, #d3d3d3, #3a3a3a);
+
+
+
 }
 .carousel .list .item::before {
     content: "Laksh369";
@@ -348,7 +350,7 @@ nav.active .hamburger div:nth-child(3) {
     transform: translate(-50%, -50%);
     font-size: 8rem;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.5); /* soft transparent watermark */
+    color: rgba(255, 255, 255, 0.08);
     z-index: 0;
     pointer-events: none;
 }
@@ -366,7 +368,7 @@ nav.active .hamburger div:nth-child(3) {
     transform: translateX(-50%);
     padding-right: 40%;
     box-sizing: border-box;
-    color: #fff;
+    color: #0a0454;
     text-shadow: 0 5px 10px #0004;
 }
 .carousel .list .item .author{
@@ -380,7 +382,7 @@ nav.active .hamburger div:nth-child(3) {
     line-height: 1.3em;
 }
 .carousel .list .item .topic{
-    color: #f1683a;
+    color: #e2430e;
 }
 .carousel .list .item .buttons{
     display: grid;
@@ -424,17 +426,19 @@ nav.active .hamburger div:nth-child(3) {
     border-radius: 20px;
 }
 .thumbnail .item .content{
-    color: #fff;
+    color: hsl(0, 0%, 100%);  /* premium charcoal */
     position: absolute;
     bottom: 10px;
     left: 10px;
     right: 10px;
+    font-weight: bolder;
 }
 .thumbnail .item .content .title{
-    font-weight: 500;
+    font-weight: 1000;
 }
 .thumbnail .item .content .description{
-    font-weight: 300;
+    font-weight: 800;
+    color: #1a1f2b;
 }
 /* arrows */
 .arrows{
@@ -614,13 +618,89 @@ nav.active .hamburger div:nth-child(3) {
     }
 }
 @media screen and (max-width: 678px) {
-    .carousel .list .item .content{
-        padding-right: 0;
+
+    /* MAIN SLIDER CONTENT */
+    .carousel .list .item .content {
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 90%;
+        padding: 0;
+        text-align: center;
     }
-    .carousel .list .item .content .title{
-        font-size: 30px;
+
+    .carousel .list .item .title {
+        font-size: 1.6em;
+        line-height: 1.2em;
+    }
+
+    .carousel .list .item .topic {
+        font-size: 1.4em;
+    }
+
+    .carousel .list .item .author {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
+    .carousel .list .item img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* BUTTONS */
+    .carousel .list .item .buttons {
+        grid-template-columns: 1fr 1fr;
+        width: 80%;
+        margin: 15px auto 0 auto;
+    }
+
+    /* THUMBNAIL SECTION */
+    .thumbnail {
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 12px;
+    }
+
+    .thumbnail .item {
+        width: 95px;
+        height: 140px;
+    }
+
+    .thumbnail .item img {
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    .thumbnail .content {
+        font-size: 12px;
+    }
+
+    /* ARROWS */
+    .arrows {
+        top: 87%;
+        right: 50%;
+        transform: translateX(50%);
+        width: 160px;
+        gap: 8px;
+    }
+
+    .arrows button {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    /* WATERMARK FIX (TOO BIG ON MOBILE) */
+    .carousel .list .item::before {
+        font-size: 4rem;
     }
 }
+
+
 
 
 /* //welcome section */
