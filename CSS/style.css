@@ -678,25 +678,14 @@ nav.active .hamburger div:nth-child(3) {
     scroll-snap-type: x mandatory;
     overflow-x: auto;
     bottom: -2px;
-    left: 55%;
+    left: 10%;
 }
 
 .thumbnail .item {
     scroll-snap-align: start;
 }
- /* ARROWS */
-    .arrows {
-        top: 87%;
-        right: 80%;
-        transform: translateX(50%);
-        width: 160px;
-        gap: 8px;
-    }
-
-    .arrows button {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
+  .arrows {
+        display: none;
     }
 
     /* WATERMARK FIX (TOO BIG ON MOBILE) */
