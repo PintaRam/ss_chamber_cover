@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/productPage.css">
+
+</head>
+<body>
+    <header>
+            <nav>
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="../Imagess/Laksh369Logo.png" alt="Evently Logo">
+                    <span>Laksh369</span>
+                </div>
+        
+                <!-- Hamburger menu for mobile -->
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+        
+                <!-- Navigation links -->
+                <div class="nav-items">
+                    <a href="../index.html">Home</a>
+                    <a href="aboutUs.html">About Us</a>
+                    <div class="nav-item">
+                        <a href="#" class="dropdown-toggle">SS Manhole cover</a>
+                        <div class="dropdown">
+                            <a href="ssacesscover.html">SS Access Manhole cover</a>
+                            <a href="SSLakshCover.html">SS Laksh Influence Manhole cover</a>
+                            <a href="ssrecessedcover.html">SS Recessed Manhole cover</a>
+                            <a href="sschequeredcover.html">SS Chequered Manhole cover</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="dropdown-toggle">FRP Manhole cover</a>
+                        <div class="dropdown">
+                            <a href="frp5ton.html">FRP Manhole cover 5Ton</a>
+                            <a href="frp10ton.html">FRP Manhole cover 10Ton</a>
+                            <a href="frp25ton.html">FRP Manhole cover 25Ton</a>
+                            <a href="frpgullycover.html">FRP Gully cover 5Ton</a>
+                        </div>
+                    </div>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="login.html" class="login-icon">
+                        <i class="fas fa-user"></i> Login/Sign Up
+                    </a>
+                </div>
+            </nav>
+        </header>
+        
+    <!-- Page Heading -->
+  <section class="page-title-section">
+    <h2>Product Details</h2>
+    <p>Check out the specifications, pricing, and delivery info for your selected product</p>
+</section>
+
+    <div class="product-page">
+    <img id="product-image" src="" alt="Product Image">
+    <div class="product-info">
+        <h1 id="product-name">Product Name</h1>
+
+        <div class="price-section">
+            <span class="price" id="product-price">₹0</span>
+            <span class="mrp" id="product-mrp">₹0</span>
+            <span class="discount" id="product-discount">0% OFF</span>
+        </div>
+
+        <p class="delivery" id="product-delivery">Delivery Info</p>
+
+        <!-- Product Description -->
+        <p class="description" id="product-description">
+            Product description will appear here.
+        </p>
+
+        <!-- Buy Now Button -->
+       <a href="#" class="buy-btn" id="buy-now-btn">Buy Now</a>
+
+
+        <!-- Back Button -->
+        <a href="../index.html" class="back-btn">← Back to Products</a>
+    </div>
+</div>
+<script>
+    // script.js
+function toggleMenu() {
+    const nav = document.querySelector("nav");
+    nav.classList.toggle("active");
+}
+</script>
+
+<script type="module" src="../javascript/productPage.js"></script>
+</body>
+</html>
