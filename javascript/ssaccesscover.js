@@ -36,6 +36,42 @@ document.querySelectorAll('.rating-section').forEach(section => {
     });
 
 
+document.addEventListener('click', function(e){
+  // BUY NOW -> WhatsApp
+  if (e.target.closest && e.target.closest('.btn-buy-now')) {
+    const btn = e.target.closest('.btn-buy-now');
+    const card = btn.closest('.product-card');
+    if (!card) return;
 
+    // Read details from the card
+    const phone = (card.dataset.phone || '+919999999999').replace(/\D/g, ''); // numeric only
+    const title = card.querySelector('.product-title')?.innerText?.trim() || 'Product';
+    const price = card.querySelector('.price')?.innerText?.trim() || '';
+    const mrp = card.querySelector('.mrp')?.innerText?.trim() || '';
+    const delivery = card.querySelector('.delivery')?.innerText?.trim() || '';
+    const reviews = card.querySelector('.review-count')?.innerText?.trim() || '';
+    const pageUrl = window.location.href;
+
+    // Build message (edit template as you like)
+    const message = `Hello!%0A%0AI'd like to buy the following product:%0A- *${title}*%0A- Price: ${price}%0A- MRP: ${mrp}%0A- Delivery: ${delivery}%0A- Reviews: ${reviews}%0A%0APlease confirm availability and next steps.%0AProduct page: ${pageUrl}`;
+
+    // Build wa.me url (international number without + or spaces)
+    const waUrl = `https://wa.me/${phone}?text=${message}`;
+
+    // Open in new tab
+    window.open(waUrl, '_blank');
+  }
+
+  // CALL NOW -> ensure tel: uses card phone attribute when clicking anchor
+  if (e.target.closest && e.target.closest('.btn-call-now')) {
+    const link = e.target.closest('.btn-call-now');
+    const card = link.closest('.product-card');
+    if (!card) return;
+    const phone = card.dataset.phone || '+919999999999';
+    // update href right before follow (in case dataset changed dynamically)
+    link.href = `tel:${phone}`;
+    // Note: default anchor behavior will open phone dialer on devices that support it
+  }
+});
 
     
