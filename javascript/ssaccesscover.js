@@ -44,7 +44,7 @@ document.addEventListener('click', function(e){
     if (!card) return;
 
     // Read details from the card
-    const phone = (card.dataset.phone || '+919999999999').replace(/\D/g, ''); // numeric only
+    const phone = (card.dataset.phone || '+918951845341').replace(/\D/g, ''); // numeric only
     const title = card.querySelector('.product-title')?.innerText?.trim() || 'Product';
     const price = card.querySelector('.price')?.innerText?.trim() || '';
     const mrp = card.querySelector('.mrp')?.innerText?.trim() || '';
@@ -67,7 +67,7 @@ document.addEventListener('click', function(e){
     const link = e.target.closest('.btn-call-now');
     const card = link.closest('.product-card');
     if (!card) return;
-    const phone = card.dataset.phone || '+919999999999';
+    const phone = card.dataset.phone || '+918951845341';
     // update href right before follow (in case dataset changed dynamically)
     link.href = `tel:${phone}`;
     // Note: default anchor behavior will open phone dialer on devices that support it
