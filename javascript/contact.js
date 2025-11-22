@@ -10,7 +10,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     let smsBody = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${msg}`;
 
     // YOUR PHONE NUMBER
-    let adminNumber = "+91XXXXXXXXXX";  
+    let adminNumber = "+918951845341";  
 
     // Open SMS app
     window.location.href = `sms:${adminNumber}?body=${smsBody}`;
