@@ -1255,14 +1255,20 @@ nav.active .hamburger div:nth-child(3) {
 /* Optional: make carousel responsive */
 @media screen and (max-width: 1024px) {
     .video-item iframe {
-        height: 150px;
+        height: 180px; /* slightly bigger than before */
     }
 }
 @media screen and (max-width: 768px) {
     .video-item iframe {
-        height: 120px;
+        height: 200px; /* bigger for mobile screens */
     }
 }
+@media screen and (max-width: 480px) {
+    .video-item iframe {
+        height: 220px; /* even bigger for small phones */
+    }
+}
+
 
 /* Footer Section */
 /* 🌟 Footer Styles */
