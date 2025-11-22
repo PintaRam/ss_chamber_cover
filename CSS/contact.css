@@ -1,0 +1,248 @@
+/* HERO SECTION */
+.contact-hero {
+    background: linear-gradient(135deg, #1e3c72, #2a5298), 
+                url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+    background-blend-mode: overlay;
+    animation: fadeDown 1.2s ease;
+}
+
+
+.contact-hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255,255,255,0.6);
+    letter-spacing: 0.5px;
+    animation: dropIn 1s ease;
+}
+
+.contact-hero p {
+    font-size: 1.2rem;
+    opacity: 0.92;
+    color: #f8f8f8;
+    margin: 0 auto;
+    max-width: 700px;
+    animation: fadeUp 1.2s ease;
+}
+
+@keyframes dropIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* CONTACT CONTAINER */
+/* ------------------------------ */
+/* CONTACT PAGE LAYOUT            */
+/* ------------------------------ */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 80px 8%;
+    animation: fadeUp 1.4s ease;
+}
+
+/* ------------------------------ */
+/* CONTACT INFO BOX               */
+/* ------------------------------ */
+.contact-info {
+    background: linear-gradient(135deg, #ffffff, #f6f8ff);
+    padding: 40px 35px;
+    border-radius: 22px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.4);
+    animation: slideLeft 1.3s ease;
+    transition: 0.3s ease-in-out;
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 45px rgba(0,0,0,0.15);
+}
+
+/* ------------------------------ */
+/* SECTION TITLE                  */
+/* ------------------------------ */
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #0f1f3d;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.4px;
+}
+
+/* Premium animated underline */
+.section-title::after {
+    content: "";
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1b4bd8, #4a90e2, #7f53ac);
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    animation: underlineGrowPro 1.4s ease forwards;
+}
+
+@keyframes underlineGrowPro {
+    0% { width: 0; }
+    100% { width: 140px; }
+}
+
+/* ------------------------------ */
+/* CONTACT INFO BOXES             */
+/* ------------------------------ */
+.info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 28px;
+    padding: 14px 10px;
+    border-radius: 14px;
+    transition: 0.3s ease;
+}
+
+.info-box:hover {
+    background: rgba(240, 245, 255, 0.7);
+}
+
+/* ICON STYLE */
+.info-box i {
+    font-size: 30px;
+    color: #1e3c72;
+    background: #eaf0ff;
+    padding: 16px;
+    border-radius: 14px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(30,60,114,0.2);
+}
+
+.info-box:hover i {
+    transform: scale(1.15) rotate(3deg);
+    background: #d6e4ff;
+    box-shadow: 0 6px 14px rgba(30,60,114,0.25);
+}
+
+/* HEADINGS IN INFO BOX */
+.info-box h4 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #0f1f3d;
+}
+
+/* TEXT + LINKS */
+.info-box p a {
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.info-box p a:hover {
+    color: #1e3c72;
+    text-decoration: underline;
+}
+
+/* ------------------------------ */
+/* ANIMATIONS                     */
+/* ------------------------------ */
+@keyframes slideLeft {
+    0% { opacity: 0; transform: translateX(-40px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(35px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* CONTACT FORM */
+.contact-form {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    animation: slideRight 1.2s ease;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1.5px solid #d6d6d6;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #1e3c72;
+    box-shadow: 0 0 6px rgba(30, 60, 114, 0.3);
+}
+
+textarea {
+    height: 140px;
+    resize: none;
+}
+
+/* SUBMIT BUTTON */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: #1e3c72;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: #2a5298;
+    transform: translateY(-2px);
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes underlineGrow {
+    from { width: 0; }
+    to { width: 60px; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+    }
+}
