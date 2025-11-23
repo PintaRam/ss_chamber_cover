@@ -1192,82 +1192,91 @@ nav.active .hamburger div:nth-child(3) {
     100% { transform: translateX(-50%); }
 }
 
-
 /* Section styling */
 .videos-section {
-    text-align: center;
-    padding: 50px 20px;
-    background: #f9f9f9;
+text-align: center;
+padding: 50px 20px;
+background: #f9f9f9;
 }
 .videos-section h2 {
-    font-family: 'Pacifico', cursive;
-    color: #28527a;
-    font-size: 2.5em;
-    margin-bottom: 10px;
+font-family: 'Pacifico', cursive;
+color: #28527a;
+font-size: 2.5em;
+margin-bottom: 10px;
 }
 .videos-section p {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 30px;
+font-size: 1.2em;
+color: #555;
+margin-bottom: 40px;
 }
 
 /* Carousel container */
 .videos-carousel {
-    position: relative;
-    overflow: hidden;
-    width: 90%;
-    margin: auto;
+position: relative;
+overflow: hidden;
+width: 95%;
+margin: auto;
 }
 
-/* Track for animation */
+/* Track for smooth scrolling */
 .videos-track {
-    display: flex;
-    width: calc(320px * 22); /* number of videos x width */
-    animation: scrollVideos 50s linear infinite;
+display: flex;
+gap: 20px;
+animation: scrollVideos 60s linear infinite;
 }
 
 /* Individual video items */
 .video-item {
-    flex: 0 0 300px;
-    margin: 0 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
+flex: 0 0 300px;
+border-radius: 10px;
+overflow: hidden;
+transition: transform 0.3s;
+background: #000;
 }
 .video-item:hover {
-    transform: scale(1.05);
+transform: scale(1.05);
 }
 
-/* iframe styling */
-.video-item iframe {
-    width: 100%;
-    height: 170px;
-    border: none;
-    border-radius: 10px;
+/* Video styling */
+.video-item video {
+width: 100%;
+height: 170px;
+object-fit: cover;
+display: block;
 }
 
-/* Animation */
+/* Animation for carousel scroll */
 @keyframes scrollVideos {
-    0% { transform: translateX(-50%); } /* start left */
-    100% { transform: translateX(0); }   /* move right */
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
 }
 
-/* Optional: make carousel responsive */
+/* Responsive adjustments */
 @media screen and (max-width: 1024px) {
-    .video-item iframe {
-        height: 300px; /* slightly bigger than before */
-    }
+.video-item {
+flex: 0 0 250px;
+}
+.video-item video {
+height: 150px;
+}
 }
 @media screen and (max-width: 768px) {
-    .video-item iframe {
-        height: 350px; /* bigger for mobile screens */
-    }
+.video-item {
+flex: 0 0 200px;
+}
+.video-item video {
+height: 130px;
+}
 }
 @media screen and (max-width: 480px) {
-    .video-item iframe {
-        height: 380px; /* even bigger for small phones */
-    }
+.video-item {
+flex: 0 0 180px;
 }
+.video-item video {
+height: 110px;
+}
+}
+
 
 
 /* Footer Section */
