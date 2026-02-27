@@ -2,17 +2,9 @@ const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container");
 
-console.log("register.js loaded");
+console.log("login.js loaded");
 
-function handleLogin() {
-    console.log("Login button clicked");
-    localStorage.setItem("isLoggedIn", "true");
-    window.location.href = "index.html"; // Redirect to home page
-}
-
-document.getElementById("login-btn").addEventListener("click", handleLogin);
-
-
+// Toggle between sign-in and sign-up forms
 sign_up_btn.addEventListener("click", () => {
   container.classList.add("sign-up-mode");
 });
@@ -21,12 +13,10 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-console.log("register.js loaded");
-
-function handleLogin() {
-    console.log("Login button clicked");
-    localStorage.setItem("isLoggedIn", "true"); // Set login state
-    window.location.href = "../index.html"; // Redirect to home page
+// Hamburger menu toggle
+function toggleMenu() {
+    const nav = document.querySelector('nav');
+    const navItems = document.querySelector('.nav-items');
+    nav.classList.toggle('active');
+    navItems.classList.toggle('active');
 }
-
-document.getElementById("login-btn").addEventListener("click", handleLogin);
