@@ -205,32 +205,7 @@
 </footer>
 
 
-<script>
-function toggleMenu() {
-    const nav = document.querySelector("nav");
-    const body = document.body;
-    nav.classList.toggle("active");
-
-    // Prevent body scroll when menu is open
-    if (nav.classList.contains("active")) {
-        body.style.overflow = "hidden";
-    } else {
-        body.style.overflow = "auto";
-    }
-}
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
-    const nav = document.querySelector("nav");
-    const hamburger = document.querySelector(".hamburger");
-
-    if (nav.classList.contains("active") &&
-        !nav.contains(event.target) &&
-        !hamburger.contains(event.target)) {
-        toggleMenu();
-    }
-});
-</script>
+<script src="../javascript/navigation.js"></script>
 <script src="../javascript/ssaccesscover.js"></script>
 <script src="../javascript/contact.js"></script>
 </body>

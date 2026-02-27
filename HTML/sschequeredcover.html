@@ -449,35 +449,7 @@
     Powered by Shree Ashish Industries
   </div>
 </footer>
-<script>
-    // Enhanced Mobile Menu Toggle
-function toggleMenu() {
-    const nav = document.querySelector("nav");
-    const body = document.body;
-    nav.classList.toggle("active");
-
-    // Prevent body scroll when menu is open
-    if (nav.classList.contains("active")) {
-        body.style.overflow = "hidden";
-    } else {
-        body.style.overflow = "auto";
-    }
-}
-
-// Close menu when clicking outside
-document.addEventListener('click', function(event) {
-    const nav = document.querySelector('nav');
-    const hamburger = document.querySelector('.hamburger');
-    const navItems = document.querySelector('.nav-items');
-
-    if (nav.classList.contains('active') &&
-        !navItems.contains(event.target) &&
-        !hamburger.contains(event.target)) {
-        nav.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-});
-</script>
+<script src="../javascript/navigation.js"></script>
 <script src="../javascript/ssaccesscover.js"></script>
 </body>
 </html>

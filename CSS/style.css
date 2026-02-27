@@ -429,6 +429,13 @@ nav.active .hamburger div:nth-child(3) {
         padding: 15px 25px;
         display: block;
         color: white;
+        transition: all 0.3s ease;
+    }
+
+    /* Active state for nav-item */
+    .nav-item.active > a {
+        background: rgba(26, 188, 156, 0.1);
+        color: #1ABC9C;
     }
 
     .nav-items a::before {
@@ -459,16 +466,6 @@ nav.active .hamburger div:nth-child(3) {
         visibility: visible !important;
     }
 
-    /* DEBUG: Force Contact Us to be visible */
-    nav.active .nav-items > a[href*="contact"] {
-        opacity: 1 !important;
-        display: block !important;
-        visibility: visible !important;
-        background: rgba(255, 0, 0, 0.2) !important;
-        color: white !important;
-        transform: translateX(0) !important;
-    }
-
     /* Staggered animation delay */
     nav.active .nav-items > *:nth-child(1) { transition-delay: 0.1s; }
     nav.active .nav-items > *:nth-child(2) { transition-delay: 0.15s; }
@@ -496,43 +493,121 @@ nav.active .hamburger div:nth-child(3) {
         display: block !important;
     }
 
-    .nav-items a:last-child {
+    .nav-items > a:last-of-type {
         border-bottom: none;
     }
 
-    .nav-items a:hover {
+    .nav-items > a:hover,
+    .nav-items > .nav-item > a:hover {
         background: rgba(26, 188, 156, 0.1);
         padding-left: 30px;
+    }
+
+    /* Add spacing between menu sections */
+    .nav-items > a,
+    .nav-items > .nav-item {
+        margin-bottom: 2px;
+    }
+
+    /* Mobile Dropdown Styling */
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-item > a.dropdown-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    /* Dropdown arrow indicator */
+    .nav-item > a.dropdown-toggle::after {
+        content: '▼';
+        font-size: 10px;
+        margin-left: auto;
+        transition: transform 0.3s ease;
+        display: inline-block;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .nav-item.active > a.dropdown-toggle::after {
+        transform: rotate(180deg);
+        color: #1ABC9C;
+    }
+
+    /* Subtle indicator that item is clickable */
+    .nav-item > a.dropdown-toggle {
+        cursor: pointer;
+        user-select: none;
     }
 
     /* Dropdown in mobile - COLLAPSED BY DEFAULT */
     .nav-item .dropdown {
         position: static;
-        background: rgba(0, 0, 0, 0.2);
-        box-shadow: none;
-        border-radius: 0;
-        margin-top: 0;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+        box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        margin: 8px 15px;
+        padding: 0;
         transform: none;
-        opacity: 1;
-        visibility: visible;
-        display: none;
+        opacity: 0;
+        visibility: hidden;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease, display 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Show dropdown when parent is clicked/hovered */
-    .nav-item:hover .dropdown,
+    /* Show dropdown when parent is active */
     .nav-item.active .dropdown {
-        display: block;
+        opacity: 1;
+        visibility: visible;
         max-height: 500px;
+        padding: 8px 0;
+        margin-top: 8px;
     }
 
     .nav-item .dropdown a {
-        padding-left: 40px;
+        padding: 12px 20px 12px 40px;
         font-size: 14px;
+        opacity: 0;
+        transform: translateX(-10px);
+        border-left: 3px solid transparent;
+        transition: all 0.3s ease;
+        display: block;
+        color: rgba(255, 255, 255, 0.85);
+        position: relative;
+    }
+
+    /* Staggered animation for dropdown items */
+    .nav-item.active .dropdown a {
         opacity: 1 !important;
         transform: translateX(0) !important;
+    }
+
+    .nav-item.active .dropdown a:nth-child(1) { transition-delay: 0.05s; }
+    .nav-item.active .dropdown a:nth-child(2) { transition-delay: 0.1s; }
+    .nav-item.active .dropdown a:nth-child(3) { transition-delay: 0.15s; }
+    .nav-item.active .dropdown a:nth-child(4) { transition-delay: 0.2s; }
+
+    .nav-item .dropdown a::before {
+        content: '→';
+        position: absolute;
+        left: 20px;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-item .dropdown a:hover {
+        background: rgba(26, 188, 156, 0.15);
+        border-left-color: #1ABC9C;
+        padding-left: 45px;
+        color: #1ABC9C;
+    }
+
+    .nav-item .dropdown a:hover::before {
+        opacity: 1;
+        left: 25px;
     }
 
     /* SUB DROPDOWN FIX */
