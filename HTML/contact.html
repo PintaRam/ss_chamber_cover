@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SS Access Manhole cover</title>
+    <title>Contact Us | Shree Ashish Industries</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/ssacesscover.css">
-     <link rel = "stylesheet" href = "../CSS/style.css">
-     <link rel="stylesheet" href="../CSS/contact.css">
-    
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/contact.css">
+
 </head>
 <body>
     <header>
@@ -206,11 +205,31 @@
 </footer>
 
 
-        <script>
-        function toggleMenu() {
+<script>
+function toggleMenu() {
     const nav = document.querySelector("nav");
+    const body = document.body;
     nav.classList.toggle("active");
+
+    // Prevent body scroll when menu is open
+    if (nav.classList.contains("active")) {
+        body.style.overflow = "hidden";
+    } else {
+        body.style.overflow = "auto";
+    }
 }
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector("nav");
+    const hamburger = document.querySelector(".hamburger");
+
+    if (nav.classList.contains("active") &&
+        !nav.contains(event.target) &&
+        !hamburger.contains(event.target)) {
+        toggleMenu();
+    }
+});
 </script>
 <script src="../javascript/ssaccesscover.js"></script>
 <script src="../javascript/contact.js"></script>

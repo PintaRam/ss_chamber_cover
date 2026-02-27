@@ -379,7 +379,7 @@ nav.active .hamburger div:nth-child(3) {
         gap: 6px;
     }
 
-    /* MAIN MENU */
+    /* MAIN MENU - SLIDE IN FROM RIGHT */
     .nav-items {
         display: flex;
         flex-direction: column;
@@ -387,15 +387,13 @@ nav.active .hamburger div:nth-child(3) {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 280px;
+        width: 300px;
         height: 100vh;
         padding: 80px 0 20px 0;
         border-radius: 0;
         box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
-
-        opacity: 0;
-        transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-                    opacity 0.3s ease;
+        opacity: 1;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         overflow-y: auto;
         z-index: 999;
     }
@@ -403,7 +401,6 @@ nav.active .hamburger div:nth-child(3) {
     /* When ACTIVE → slide in from right */
     nav.active .nav-items {
         right: 0;
-        opacity: 1;
     }
 
     /* MENU LINK ANIMATION */
@@ -642,30 +639,37 @@ nav.active .hamburger div:nth-child(3) {
 }
 .thumbnail .item{
     width: 150px;
-    height: 220px;
+    height: auto;
     flex-shrink: 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 .thumbnail .item img{
     width: 100%;
-    height: 100%;
+    height: 180px;
     object-fit: contain;
     border-radius: 20px;
 }
 .thumbnail .item .content{
-    color: hsl(0, 0%, 100%);  /* premium charcoal */
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    font-weight: bolder;
+    color: #0a0454;
+    position: relative;
+    text-align: center;
+    padding: 0 5px;
 }
 .thumbnail .item .content .title{
-    font-weight: 1000;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.3;
+    margin-bottom: 2px;
+    color: #0a0454;
 }
 .thumbnail .item .content .description{
-    font-weight: 800;
-    color: #1a1f2b;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 1.2;
+    color: #666;
 }
 /* arrows */
 .arrows{
@@ -878,7 +882,19 @@ nav.active .hamburger div:nth-child(3) {
 
     .thumbnail .item {
         width: 120px;
-        height: 180px;
+        height: auto;
+    }
+
+    .thumbnail .item img {
+        height: 150px;
+    }
+
+    .thumbnail .item .content .title {
+        font-size: 11px;
+    }
+
+    .thumbnail .item .content .description {
+        font-size: 9px;
     }
 }
 
@@ -895,12 +911,13 @@ nav.active .hamburger div:nth-child(3) {
     /* MAIN SLIDER CONTENT */
     .carousel .list .item .content {
         top: 10%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 90%;
-        padding: 0;
-        text-align: center;
+        left: 15%;
+        right: auto;
+        transform: none;
+        width: 80%;
+        max-width: 80%;
+        padding: 0 5% 0 0;
+        text-align: left;
     }
 
     .carousel .list .item .title {
@@ -940,17 +957,36 @@ nav.active .hamburger div:nth-child(3) {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         bottom: 10px;
-        left: 5%;
-        width: 90%;
+        left: 10%;
+        width: 85%;
         gap: 10px;
         padding: 10px 0;
+        justify-content: flex-start;
     }
 
     .thumbnail .item {
         scroll-snap-align: start;
-        width: 100px;
-        height: 150px;
+        width: calc(33.333% - 7px);
+        min-width: 90px;
+        max-width: 110px;
+        height: auto;
         flex-shrink: 0;
+    }
+
+    .thumbnail .item:nth-child(n+4) {
+        display: none;
+    }
+
+    .thumbnail .item img {
+        height: 120px;
+    }
+
+    .thumbnail .item .content .title {
+        font-size: 10px;
+    }
+
+    .thumbnail .item .content .description {
+        font-size: 8px;
     }
 
     .arrows {
@@ -987,9 +1023,32 @@ nav.active .hamburger div:nth-child(3) {
         max-height: 55%;
     }
 
+    .thumbnail {
+        left: 8%;
+        width: 87%;
+    }
+
     .thumbnail .item {
-        width: 80px;
-        height: 120px;
+        width: calc(33.333% - 7px);
+        min-width: 80px;
+        max-width: 95px;
+        height: auto;
+    }
+
+    .thumbnail .item:nth-child(n+4) {
+        display: none;
+    }
+
+    .thumbnail .item img {
+        height: 100px;
+    }
+
+    .thumbnail .item .content .title {
+        font-size: 9px;
+    }
+
+    .thumbnail .item .content .description {
+        font-size: 7px;
     }
 
     .carousel .list .item::before {

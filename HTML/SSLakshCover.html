@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SS Access Manhole cover</title>
+    <title>SS Laksh Influence Manhole Cover | Shree Ashish Industries</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/ssacesscover.css">
-     <!-- <link rel = "stylesheet" href = "../CSS/style.css"> -->
 </head>
 <body>
     <header>
             <nav>
                 <!-- Logo -->
-                <div class="logo">
-                    <img src="../Imagess/Laksh369Logo.png" alt="Evently Logo">
+                <a href="../index.html" class="logo">
+                    <img src="../Imagess/Laksh369Logo.png" alt="Shree Ashish Industries Logo">
                     <span>Laksh369</span>
-                </div>
+                </a>
         
                 <!-- Hamburger menu for mobile -->
                 <div class="hamburger" onclick="toggleMenu()">
@@ -448,11 +448,33 @@
   </div>
 </footer>
 <script>
-    // script.js
+    // Enhanced Mobile Menu Toggle
 function toggleMenu() {
     const nav = document.querySelector("nav");
+    const body = document.body;
     nav.classList.toggle("active");
+
+    // Prevent body scroll when menu is open
+    if (nav.classList.contains("active")) {
+        body.style.overflow = "hidden";
+    } else {
+        body.style.overflow = "auto";
+    }
 }
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector('nav');
+    const hamburger = document.querySelector('.hamburger');
+    const navItems = document.querySelector('.nav-items');
+
+    if (nav.classList.contains('active') &&
+        !navItems.contains(event.target) &&
+        !hamburger.contains(event.target)) {
+        nav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
 </script>
 <script src="../javascript/ssaccesscover.js"></script>
 </body>

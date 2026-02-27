@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,16 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/gallery.css">
-    <link rel ="stylesheet" href="../CSS/gallery.css">
 </head>
 <body>
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">
-                <img src="../Imagess/Laksh369Logo.png" alt="Logo">
+            <a href="../index.html" class="logo">
+                <img src="../Imagess/Laksh369Logo.png" alt="Shree Ashish Industries Logo">
                 <span>Laksh369</span>
-            </div>
+            </a>
             <div class="hamburger" onclick="toggleMenu()">
                 <div></div><div></div><div></div>
             </div>
@@ -196,13 +195,32 @@
         Powered by Shree Ashish Industries
     </div>
 </footer>
-```
 
 <script>
 function toggleMenu() {
     const nav = document.querySelector("nav");
+    const body = document.body;
     nav.classList.toggle("active");
+
+    // Prevent body scroll when menu is open
+    if (nav.classList.contains("active")) {
+        body.style.overflow = "hidden";
+    } else {
+        body.style.overflow = "auto";
+    }
 }
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector("nav");
+    const hamburger = document.querySelector(".hamburger");
+
+    if (nav.classList.contains("active") &&
+        !nav.contains(event.target) &&
+        !hamburger.contains(event.target)) {
+        toggleMenu();
+    }
+});
 </script>
 
 </body>

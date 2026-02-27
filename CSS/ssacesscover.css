@@ -72,30 +72,25 @@ nav a:hover {
     color: #1ABC9C;
 }
 
-/* Navigation Items */
-.nav-items {
+/* Navigation Items - DISABLED (Using style.css instead) */
+/* .nav-items {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-/* Dropdown Menu */
-/* ===================================
-   ULTRA-SMOOTH PREMIUM DROPDOWN MENU
-=================================== */
 .nav-item {
     position: relative;
 }
 
-/* Dropdown Base */
 .nav-item .dropdown {
     display: flex;
-    flex-direction: column; /* Ensures single-row stacked layout */
+    flex-direction: column;
     position: absolute;
     top: 120%;
     left: 0;
     min-width: 220px;
-    background: rgba(28, 37, 51, 0.96); /* Deep navy tone */
+    background: rgba(28, 37, 51, 0.96);
     backdrop-filter: blur(10px);
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
@@ -106,7 +101,6 @@ nav a:hover {
     z-index: 999;
 }
 
-/* Dropdown Items */
 .nav-item .dropdown a {
     display: block;
     width: 100%;
@@ -122,7 +116,6 @@ nav a:hover {
     letter-spacing: 0.4px;
 }
 
-/* Hover Effect — Subtle Slide + Glow */
 .nav-item .dropdown a:hover {
     background: linear-gradient(to right, rgba(255, 126, 95, 0.25), rgba(255, 213, 102, 0.22));
     color: #FFD166;
@@ -130,7 +123,6 @@ nav a:hover {
     text-shadow: 0 0 8px rgba(255, 209, 102, 0.7);
 }
 
-/* Optional arrow animation */
 .nav-item .dropdown a::after {
     content: '›';
     position: absolute;
@@ -147,12 +139,10 @@ nav a:hover {
     transform: translateX(0);
 }
 
-/* Remove border for last item */
 .nav-item .dropdown a:last-child {
     border-bottom: none;
 }
 
-/* Smooth Dropdown Animation */
 .nav-item:hover .dropdown {
     display: flex;
     opacity: 1;
@@ -160,7 +150,6 @@ nav a:hover {
     transform: translateY(0) scale(1);
 }
 
-/* Floating arrow under parent item */
 .nav-item:hover::after {
     content: '';
     position: absolute;
@@ -172,7 +161,6 @@ nav a:hover {
     filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
 }
 
-/* Optional entry animation for each item */
 .nav-item:hover .dropdown a {
     animation: dropdownFade 0.4s ease forwards;
     opacity: 0;
@@ -192,7 +180,7 @@ nav a:hover {
         transform: translateY(0);
         opacity: 1;
     }
-}
+} */
 
 
 
@@ -248,10 +236,19 @@ nav.active .hamburger div:nth-child(3) {
 }
 
 
-/* Responsive Styles */
+/* Show hamburger on mobile - This is needed! */
 @media screen and (max-width: 768px) {
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 1001;
+    }
+}
 
-    /* SLIDE + FADE MENU */
+/* Responsive Styles - DISABLED (Using style.css navigation instead) */
+/* @media screen and (max-width: 768px) {
+
     .nav-items {
         display: none;
         flex-direction: column;
@@ -266,17 +263,15 @@ nav.active .hamburger div:nth-child(3) {
 
         opacity: 0;
         transform: translateY(-25px);
-        transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);  /* Smooth */
+        transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* When ACTIVE → slide down */
     nav.active .nav-items {
         display: flex;
         opacity: 1;
         transform: translateY(0);
     }
 
-    /* MENU LINK ANIMATION (staggered fade + slide) */
     .nav-items a {
         padding: 15px;
         text-align: center;
@@ -294,7 +289,6 @@ nav.active .hamburger div:nth-child(3) {
         transform: translateY(0);
     }
 
-    /* Delay each link slightly (stagger animation) */
     .nav-items a:nth-child(1) { transition-delay: 0.05s; }
     .nav-items a:nth-child(2) { transition-delay: 0.10s; }
     .nav-items a:nth-child(3) { transition-delay: 0.15s; }
@@ -310,13 +304,13 @@ nav.active .hamburger div:nth-child(3) {
         flex-direction: column;
         gap: 6px;
     }
-}
+} */
 
-/* Hover Effect */
-.nav-item:hover > a {
+/* Hover Effect - DISABLED (Using style.css instead) */
+/* .nav-item:hover > a {
     color: #00E0C6;
     transition: 0.3s ease;
-}
+} */
 
 
 
