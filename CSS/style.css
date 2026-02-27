@@ -381,7 +381,7 @@ nav.active .hamburger div:nth-child(3) {
 
     /* MAIN MENU - SLIDE IN FROM RIGHT */
     .nav-items {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         background: linear-gradient(135deg, #1a1f2b, #2C3E50);
         position: fixed;
@@ -389,13 +389,16 @@ nav.active .hamburger div:nth-child(3) {
         right: -100%;
         width: 300px;
         height: 100vh;
-        padding: 80px 0 20px 0;
+        max-height: 100vh;
+        padding: 80px 0 60px 0;
         border-radius: 0;
         box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
         opacity: 1;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow-y: auto;
+        overflow-y: auto !important;
+        overflow-x: hidden;
         z-index: 999;
+        -webkit-overflow-scrolling: touch;
     }
 
     /* When ACTIVE → slide in from right */
@@ -409,16 +412,17 @@ nav.active .hamburger div:nth-child(3) {
         padding: 15px 25px;
         text-align: left;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        color: white;
+        color: white !important;
         font-size: 16px;
         opacity: 0;
         transform: translateX(30px);
         transition: all 0.35s ease;
-        display: block;
+        display: block !important;
     }
 
     .nav-items > a {
         padding: 15px 25px;
+        display: block !important;
     }
 
     .nav-items > .nav-item > a {
@@ -431,11 +435,38 @@ nav.active .hamburger div:nth-child(3) {
         display: none;
     }
 
+    /* When menu is active, show ALL items */
     nav.active .nav-items > a,
     nav.active .nav-items > .nav-item,
     nav.active .nav-items a {
-        opacity: 1;
-        transform: translateX(0);
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        display: block !important;
+    }
+
+    /* Force all direct children to be visible */
+    nav.active .nav-items > * {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    /* Specifically target all anchor tags */
+    nav.active .nav-items a {
+        opacity: 1 !important;
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    /* DEBUG: Force Contact Us to be visible */
+    nav.active .nav-items > a[href*="contact"] {
+        opacity: 1 !important;
+        display: block !important;
+        visibility: visible !important;
+        background: rgba(255, 0, 0, 0.2) !important;
+        color: white !important;
+        transform: translateX(0) !important;
     }
 
     /* Staggered animation delay */
@@ -447,12 +478,22 @@ nav.active .hamburger div:nth-child(3) {
     nav.active .nav-items > *:nth-child(6) { transition-delay: 0.35s; }
     nav.active .nav-items > *:nth-child(7) { transition-delay: 0.4s; }
     nav.active .nav-items > *:nth-child(8) { transition-delay: 0.45s; }
+    nav.active .nav-items > *:nth-child(9) { transition-delay: 0.5s; }
+    nav.active .nav-items > *:nth-child(10) { transition-delay: 0.55s; }
 
     /* Ensure all nav items are visible when menu is active */
     nav.active .nav-items > a,
     nav.active .nav-items > .nav-item {
-        opacity: 1;
-        transform: translateX(0);
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        display: block !important;
+    }
+
+    /* Ensure Contact Us link is always visible */
+    nav.active .nav-items > a:last-of-type {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        display: block !important;
     }
 
     .nav-items a:last-child {
@@ -464,21 +505,34 @@ nav.active .hamburger div:nth-child(3) {
         padding-left: 30px;
     }
 
-    /* Dropdown in mobile */
+    /* Dropdown in mobile - COLLAPSED BY DEFAULT */
     .nav-item .dropdown {
         position: static;
         background: rgba(0, 0, 0, 0.2);
         box-shadow: none;
         border-radius: 0;
-        margin-top: 5px;
+        margin-top: 0;
         transform: none;
         opacity: 1;
         visibility: visible;
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, display 0.3s ease;
+    }
+
+    /* Show dropdown when parent is clicked/hovered */
+    .nav-item:hover .dropdown,
+    .nav-item.active .dropdown {
+        display: block;
+        max-height: 500px;
     }
 
     .nav-item .dropdown a {
         padding-left: 40px;
         font-size: 14px;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
     }
 
     /* SUB DROPDOWN FIX */
