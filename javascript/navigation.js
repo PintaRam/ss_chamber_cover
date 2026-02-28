@@ -19,28 +19,34 @@ function toggleMenu() {
 // Mobile Dropdown Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    
+
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             // Check if we're in mobile view
             if (window.innerWidth <= 768) {
                 const parentNavItem = this.closest('.nav-item');
                 const dropdown = parentNavItem.querySelector('.dropdown');
-                
+
                 // Close other dropdowns
                 document.querySelectorAll('.nav-item').forEach(item => {
                     if (item !== parentNavItem) {
                         item.classList.remove('active');
                     }
                 });
-                
+
                 // Toggle current dropdown
                 parentNavItem.classList.toggle('active');
             }
         });
     });
+
+    // Auto-update copyright year
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 });
 
 // Close mobile menu when clicking outside
