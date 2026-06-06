@@ -1,0 +1,92 @@
+# .htaccess for Shree Ashish Industries - SEO-Friendly URLs
+# Enable URL Rewriting
+
+RewriteEngine On
+RewriteBase /
+
+# Force HTTPS (if SSL is installed)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force www (optional)
+# RewriteCond %{HTTP_HOST} !^www\.
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove .html extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# SEO-Friendly URL Redirects - Main Pages
+RewriteRule ^stainless-steel-chamber-cover-manufacturer/?$ index.html [L,NC]
+RewriteRule ^ss-chamber-cover-manufacturer-bangalore/?$ HTML/aboutUs.html [L,NC]
+RewriteRule ^contact-chamber-cover-manufacturer/?$ HTML/contact.html [L,NC]
+RewriteRule ^stainless-steel-chamber-cover-gallery/?$ HTML/gallery.html [L,NC]
+
+# SEO-Friendly URL Redirects - SS Product Pages
+RewriteRule ^stainless-steel-access-cover/?$ HTML/ssacesscover.html [L,NC]
+RewriteRule ^stainless-steel-laksh-influence-chamber-cover/?$ HTML/SSLakshCover.html [L,NC]
+RewriteRule ^recessed-chamber-cover/?$ HTML/ssrecessedcover.html [L,NC]
+RewriteRule ^stainless-steel-chequered-chamber-cover/?$ HTML/sschequeredcover.html [L,NC]
+
+# SEO-Friendly URL Redirects - FRP Product Pages
+RewriteRule ^frp-manhole-cover-5-ton/?$ HTML/frp5ton.html [L,NC]
+RewriteRule ^frp-manhole-cover-10-ton/?$ HTML/frp10ton.html [L,NC]
+RewriteRule ^frp-manhole-cover-25-ton/?$ HTML/frp25ton.html [L,NC]
+RewriteRule ^frp-gully-cover/?$ HTML/frpgullycover.html [L,NC]
+
+# Old URL to New URL Redirects (301 Permanent)
+Redirect 301 /HTML/aboutUs.html https://sschambercover.in/ss-chamber-cover-manufacturer-bangalore
+Redirect 301 /HTML/contact.html https://sschambercover.in/contact-chamber-cover-manufacturer
+Redirect 301 /HTML/gallery.html https://sschambercover.in/stainless-steel-chamber-cover-gallery
+Redirect 301 /HTML/ssacesscover.html https://sschambercover.in/stainless-steel-access-cover
+Redirect 301 /HTML/SSLakshCover.html https://sschambercover.in/stainless-steel-laksh-influence-chamber-cover
+Redirect 301 /HTML/ssrecessedcover.html https://sschambercover.in/recessed-chamber-cover
+Redirect 301 /HTML/sschequeredcover.html https://sschambercover.in/stainless-steel-chequered-chamber-cover
+Redirect 301 /HTML/frp5ton.html https://sschambercover.in/frp-manhole-cover-5-ton
+Redirect 301 /HTML/frp10ton.html https://sschambercover.in/frp-manhole-cover-10-ton
+Redirect 301 /HTML/frp25ton.html https://sschambercover.in/frp-manhole-cover-25-ton
+Redirect 301 /HTML/frpgullycover.html https://sschambercover.in/frp-gully-cover
+
+# Protect sensitive files
+<FilesMatch "^(\.htaccess|\.htpasswd|readme\.txt|license\.txt)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Enable GZIP Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Custom Error Pages (create these files if needed)
+# ErrorDocument 404 /404.html
+# ErrorDocument 500 /500.html
+
+# Prevent Directory Listing
+Options -Indexes
+
+# UTF-8 Encoding
+AddDefaultCharset UTF-8

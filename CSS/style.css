@@ -2039,6 +2039,7 @@ nav.active .hamburger div:nth-child(3) {
     padding: 60px 20px;
     background: linear-gradient(135deg, #faf9f6, #ffffff);
     overflow: hidden;
+    width: 100%;
 }
 
 .collab-section h2 {
@@ -2072,9 +2073,9 @@ nav.active .hamburger div:nth-child(3) {
 .collab-slider {
     position: relative;
     overflow: hidden;
-    width: 95%;
+    width: 100%;
     max-width: var(--max-width);
-    margin: auto;
+    margin: 0 auto;
 }
 
 .collab-track {
@@ -2140,9 +2141,14 @@ nav.active .hamburger div:nth-child(3) {
 }
 
 /* Responsive Collaborators */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .collab-section {
-        padding: 40px 15px;
+        padding: 50px 20px;
+    }
+
+    .collab-slider {
+        width: 100%;
+        max-width: 100%;
     }
 
     .collab-track {
@@ -2153,29 +2159,116 @@ nav.active .hamburger div:nth-child(3) {
 
     .collab-item {
         flex: 0 0 180px;
-        padding: 20px;
+        padding: 20px 15px;
+    }
+
+    .collab-item img {
+        width: 85px;
+        height: 85px;
+    }
+
+    .collab-item h4 {
+        font-size: 16px;
+    }
+
+    .collab-item span {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .collab-section {
+        padding: 40px 20px;
+        overflow: visible;
+    }
+
+    .collab-section h2 {
+        margin-bottom: 10px;
+    }
+
+    .collab-section p {
+        margin-bottom: 30px;
+    }
+
+    .collab-slider {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        overflow: visible;
+    }
+
+    .collab-track {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        width: 100% !important;
+        animation: none !important;
+    }
+
+    .collab-item {
+        flex: none;
+        padding: 20px 15px;
+    }
+
+    .collab-item:nth-child(n+9) {
+        display: none;
     }
 
     .collab-item img {
         width: 80px;
         height: 80px;
     }
+
+    .collab-item h4 {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .collab-item span {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 480px) {
+    .collab-section {
+        padding: 35px 15px;
+    }
+
+    .collab-slider {
+        max-width: 100%;
+        padding: 0 5px;
+    }
+
     .collab-track {
-        width: calc(160px * 40);
-        gap: 10px;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        width: 100% !important;
+        animation: none !important;
     }
 
     .collab-item {
-        flex: 0 0 150px;
-        padding: 15px;
+        padding: 18px 12px;
+    }
+
+    .collab-item:nth-child(n+9) {
+        display: none;
     }
 
     .collab-item img {
         width: 70px;
         height: 70px;
+        margin-bottom: 10px;
+    }
+
+    .collab-item h4 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .collab-item span {
+        font-size: 11px;
+        line-height: 1.3;
     }
 }
 

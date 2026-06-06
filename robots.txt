@@ -1,0 +1,29 @@
+# robots.txt for https://sschambercover.in/
+# Shree Ashish Industries - SS & FRP Manhole Cover Manufacturer
+
+User-agent: *
+Allow: /
+Allow: /HTML/
+Allow: /CSS/
+Allow: /javascript/
+Allow: /Imagess/
+
+Disallow: /cgi-bin/
+Disallow: /*.json$
+Disallow: /private/
+
+# Specific User-agents
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /Imagess/
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl Delay
+Crawl-delay: 10
+
+# Sitemap Location
+Sitemap: https://sschambercover.in/sitemap.xml
