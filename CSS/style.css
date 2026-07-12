@@ -1770,13 +1770,13 @@ nav.active .hamburger div:nth-child(3) {
 
 .action-buttons .btn-add-to-cart,
 .action-buttons .btn-buy-now {
-    padding: 14px 20px;
-    border-radius: 50px;
+    padding: 11px 24px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
-    font-size: clamp(13px, 2.2vw, 15px);
-    font-weight: 700;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: clamp(13px, 2vw, 14px);
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     flex: 1;
     position: relative;
     overflow: hidden;
@@ -1786,15 +1786,18 @@ nav.active .hamburger div:nth-child(3) {
     justify-content: center;
     gap: 6px;
     text-align: center;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
     z-index: 1;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Add to Cart Button - Phone Numbers */
 .btn-add-to-cart {
-    background: linear-gradient(135deg, #1ABC9C 0%, #16A085 100%);
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(26, 188, 156, 0.3);
+    background: linear-gradient(135deg, #00D4AA 0%, #00B894 100%);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 3px 12px rgba(0, 212, 170, 0.35);
     position: relative;
 }
 
@@ -1839,17 +1842,19 @@ nav.active .hamburger div:nth-child(3) {
 }
 
 .btn-add-to-cart:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 25px rgba(26, 188, 156, 0.45);
-    background: linear-gradient(135deg, #16A085 0%, #1ABC9C 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 170, 0.5);
+    background: linear-gradient(135deg, #00B894 0%, #00D4AA 100%);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* Buy Now / More Info Button */
 .btn-buy-now {
     background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-    color: #fff;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-    font-weight: 700;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 3px 12px rgba(255, 107, 107, 0.35);
+    font-weight: 600;
 }
 
 /* Shine effect */
@@ -1870,9 +1875,10 @@ nav.active .hamburger div:nth-child(3) {
 }
 
 .btn-buy-now:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
     background: linear-gradient(135deg, #FF8E53 0%, #FF6B6B 100%);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .action-buttons button:active,
@@ -1893,15 +1899,15 @@ nav.active .hamburger div:nth-child(3) {
 /* Subtle glow animation for phone buttons */
 @keyframes phoneGlow {
     0%, 100% {
-        box-shadow: 0 4px 15px rgba(26, 188, 156, 0.3);
+        box-shadow: 0 3px 12px rgba(0, 212, 170, 0.35);
     }
     50% {
-        box-shadow: 0 4px 20px rgba(26, 188, 156, 0.5);
+        box-shadow: 0 4px 16px rgba(0, 212, 170, 0.5);
     }
 }
 
 .btn-add-to-cart {
-    animation: phoneGlow 2s ease-in-out infinite;
+    animation: phoneGlow 3s ease-in-out infinite;
 }
 
 /* ===================================
@@ -1973,8 +1979,9 @@ nav.active .hamburger div:nth-child(3) {
     .action-buttons .btn-add-to-cart,
     .action-buttons .btn-buy-now {
         width: 100%;
-        padding: 12px 16px;
-        font-size: 14px;
+        padding: 10px 18px;
+        font-size: clamp(12.5px, 2.5vw, 13.5px);
+        border-radius: 7px;
     }
 }
 
@@ -2035,9 +2042,10 @@ nav.active .hamburger div:nth-child(3) {
 
     .action-buttons .btn-add-to-cart,
     .action-buttons .btn-buy-now {
-        padding: 11px 14px;
-        font-size: clamp(12px, 3vw, 13px);
-        border-radius: 40px;
+        padding: 10px 16px;
+        font-size: clamp(11.5px, 3vw, 12.5px);
+        border-radius: 6px;
+        letter-spacing: 0.3px;
     }
 
     /* Reduce animation on mobile for better performance */
@@ -2045,9 +2053,9 @@ nav.active .hamburger div:nth-child(3) {
         animation: none;
     }
 
-    .btn-add-to-cart:hover,
-    .btn-buy-now:hover {
-        transform: translateY(-2px) scale(1.01);
+    .btn-add-to-cart:active,
+    .btn-buy-now:active {
+        transform: scale(0.97);
     }
 }
 
