@@ -1770,13 +1770,13 @@ nav.active .hamburger div:nth-child(3) {
 
 .action-buttons .btn-add-to-cart,
 .action-buttons .btn-buy-now {
-    padding: 11px 24px;
-    border-radius: 8px;
+    padding: 9px 20px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
-    font-size: clamp(13px, 2vw, 14px);
+    font-size: clamp(12px, 2vw, 13px);
     font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.25s ease;
     flex: 1;
     position: relative;
     overflow: hidden;
@@ -1784,106 +1784,88 @@ nav.active .hamburger div:nth-child(3) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 5px;
     text-align: center;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     z-index: 1;
-    text-transform: uppercase;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    min-height: 38px;
 }
 
-/* Add to Cart Button - Phone Numbers */
+/* Call Now Button - Modern Flat Design */
 .btn-add-to-cart {
-    background: linear-gradient(135deg, #00D4AA 0%, #00B894 100%);
+    background: #10B981;
     color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 3px 12px rgba(0, 212, 170, 0.35);
-    position: relative;
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+    font-weight: 600;
 }
 
-/* Shine effect on hover */
 .btn-add-to-cart::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s;
-    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    border-radius: 6px;
 }
 
 .btn-add-to-cart:hover::before {
-    left: 100%;
-}
-
-/* Ripple effect on click */
-.btn-add-to-cart::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.5);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s, opacity 0.6s;
-    opacity: 0;
-    z-index: -1;
-}
-
-.btn-add-to-cart:active::after {
-    width: 300px;
-    height: 300px;
     opacity: 1;
-    transition: 0s;
 }
 
 .btn-add-to-cart:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 212, 170, 0.5);
-    background: linear-gradient(135deg, #00B894 0%, #00D4AA 100%);
-    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    background: #059669;
 }
 
-/* Buy Now / More Info Button */
+.btn-add-to-cart:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(16, 185, 129, 0.3);
+}
+
+/* More Info Button - Modern Flat Design */
 .btn-buy-now {
-    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+    background: #3B82F6;
     color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 3px 12px rgba(255, 107, 107, 0.35);
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
     font-weight: 600;
 }
 
-/* Shine effect */
 .btn-buy-now::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s;
-    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    border-radius: 6px;
 }
 
 .btn-buy-now:hover::before {
-    left: 100%;
+    opacity: 1;
 }
 
 .btn-buy-now:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
-    background: linear-gradient(135deg, #FF8E53 0%, #FF6B6B 100%);
-    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    background: #2563EB;
+}
+
+.btn-buy-now:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
 }
 
 .action-buttons button:active,
 .action-buttons a:active {
-    transform: translateY(0) scale(0.98);
+    transform: translateY(0);
 }
 
 /* Phone icon pulse animation */
@@ -1896,19 +1878,7 @@ nav.active .hamburger div:nth-child(3) {
     }
 }
 
-/* Subtle glow animation for phone buttons */
-@keyframes phoneGlow {
-    0%, 100% {
-        box-shadow: 0 3px 12px rgba(0, 212, 170, 0.35);
-    }
-    50% {
-        box-shadow: 0 4px 16px rgba(0, 212, 170, 0.5);
-    }
-}
-
-.btn-add-to-cart {
-    animation: phoneGlow 3s ease-in-out infinite;
-}
+/* Remove glow animation for cleaner look */
 
 /* ===================================
    PRODUCT CAROUSEL RESPONSIVE
@@ -1979,9 +1949,10 @@ nav.active .hamburger div:nth-child(3) {
     .action-buttons .btn-add-to-cart,
     .action-buttons .btn-buy-now {
         width: 100%;
-        padding: 10px 18px;
-        font-size: clamp(12.5px, 2.5vw, 13.5px);
-        border-radius: 7px;
+        padding: 8px 16px;
+        font-size: clamp(11.5px, 2.5vw, 12.5px);
+        border-radius: 5px;
+        min-height: 36px;
     }
 }
 
@@ -2042,20 +2013,16 @@ nav.active .hamburger div:nth-child(3) {
 
     .action-buttons .btn-add-to-cart,
     .action-buttons .btn-buy-now {
-        padding: 10px 16px;
-        font-size: clamp(11.5px, 3vw, 12.5px);
-        border-radius: 6px;
-        letter-spacing: 0.3px;
-    }
-
-    /* Reduce animation on mobile for better performance */
-    .btn-add-to-cart {
-        animation: none;
+        padding: 8px 14px;
+        font-size: clamp(11px, 3vw, 12px);
+        border-radius: 5px;
+        letter-spacing: 0.2px;
+        min-height: 34px;
     }
 
     .btn-add-to-cart:active,
     .btn-buy-now:active {
-        transform: scale(0.97);
+        transform: scale(0.98);
     }
 }
 
